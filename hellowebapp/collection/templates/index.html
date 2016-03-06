@@ -1,13 +1,20 @@
-{% load staticfiles %}
-<!doctype html>
- <html>
-      <head>
-          <title>My Hello Web App Project</title>
-          <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-      </head>
-      <body>
-          <h1>Hello World!</h1>
-          <p>I am a basic website.</p>
-      </body>
- </html>
-
+{% extends 'layouts/base.html' %}
+{% load humanize %}
+{% block title %}Homepage - {{ block.super }}{% endblock %}
+ {% block content %}
+     <h1>Hello World!</h1>
+     <p>I am a basic website.</p>
+    <p>{{number}}</p>
+    <p>There are six dogs!</p>
+    {% if number == 6 %}
+        <p>True</p>
+    {% else%}
+        <p>False</p>
+    {% endif %}
+    <p>There are {{number|apnumber}} dog{{number|pluralize}}!</p>
+    <p>There are {{number}} walrus{{number|pluralize:"es"}}!</p>
+    <p>This is my name {{thing}}</p>
+    <p>This is my name slugified{{thing|slugify}}</p>
+    <p>This is my name as title{{thing|title}}</p>
+    <p>This is my name truncated{{name|truncatewords:1}}</p>
+ {% endblock %}
