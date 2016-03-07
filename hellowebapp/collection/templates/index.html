@@ -2,7 +2,7 @@
 {% load humanize %}
 {% block title %}Homepage - {{ block.super }}{% endblock %}
  {% block content %}
-     <h1>Hello World!</h1>
+    <!-- <h1>Hello World!</h1>
      <p>I am a basic website.</p>
     <p>{{number}}</p>
     <p>There are six dogs!</p>
@@ -16,10 +16,12 @@
     <p>This is my name {{thing}}</p>
     <p>This is my name slugified{{thing|slugify}}</p>
     <p>This is my name as title{{thing|title}}</p>
-    <p>This is my name truncated{{name|truncatewords:1}}</p>
-    <p>{{things}}</p>
+    <p>This is my name truncated{{name|truncatewords:1}}</p>-->
+    <!--<p>{{things}}</p>-->
     {% for thing in things %}
-        <h2>{{thing.name}}</h2>
+        <h2>
+            <a href="{% url 'thing_detail' slug=thing.slug %}"> {{thing.name}}</a>
+        </h2>
         <p>{{thing.description}}</p>
     {% endfor%}
  {% endblock %}
