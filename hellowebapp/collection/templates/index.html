@@ -17,4 +17,9 @@
     <p>This is my name slugified{{thing|slugify}}</p>
     <p>This is my name as title{{thing|title}}</p>
     <p>This is my name truncated{{name|truncatewords:1}}</p>
+    <p>{{things}}</p>
+    {% for thing in things %}
+        <h2>{{thing.name}}</h2>
+        <p>{{thing.description}}</p>
+    {% endfor%}
  {% endblock %}
